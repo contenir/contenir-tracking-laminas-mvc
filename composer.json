@@ -24,7 +24,7 @@
     ],
     "require": {
         "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
-        "contenir/tracking": "dev-feat/consent-banner as 0.1.1",
+        "contenir/tracking": "0.1.x-dev",
         "laminas/laminas-servicemanager": "^3.22 || ^4.0",
         "laminas/laminas-view": "^2.30",
         "psr/container": "^1.1 || ^2.0"

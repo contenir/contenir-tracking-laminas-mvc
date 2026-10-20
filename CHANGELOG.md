@@ -15,7 +15,8 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
-- Requires contenir/tracking from contenir/contenir-tracking#4 (`dev-feat/consent-banner`) until it is tagged.
+- Requires contenir/tracking `0.1.x-dev` from its `main` branch, which has `TrackingConfig::waitingForConsent()` and
+  advanced Consent Mode, until that is tagged. It required contenir/contenir-tracking#4's branch, which is gone.
 
 - Requires contenir/tracking `^0.1` from Packagist, where it required `0.1.x-dev` through a `vcs` repository entry.
   A project at stable stability can now install the adapter.
