@@ -6,7 +6,16 @@ adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased] - 2026-10-21
 
+### Added
+
+- With the Consent add-on enabled, the tags always wait for consent, whatever "Wait for consent" says, so only the
+  banner's choice grants anything (`TrackingConfig::waitingForConsent()`).
+- With the Consent add-on in Google's advanced Consent Mode, the Google tag and Tag Manager are left running before
+  consent, without cookies, while the Meta pixel and LinkedIn stay gated (`ConsentAddOn`).
+
 ### Changed
+
+- Requires contenir/tracking from contenir/contenir-tracking#4 (`dev-feat/consent-banner`) until it is tagged.
 
 - Requires contenir/tracking `^0.1` from Packagist, where it required `0.1.x-dev` through a `vcs` repository entry.
   A project at stable stability can now install the adapter.
