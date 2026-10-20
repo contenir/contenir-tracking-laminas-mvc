@@ -55,6 +55,12 @@ nonce, and only when the tags don't wait for consent.
 - **Gating.** When the Consent add-on is enabled, every script that isn't necessary is written inert
   (`type="text/plain" data-category="analytics|marketing"`) for the banner to switch on. Only the Consent Mode bridge
   runs at once.
+- **Waiting for consent.** When the Consent add-on is enabled, the tags wait for consent whatever "Wait for consent"
+  says, so only the banner's choice grants anything: Google's defaults are denied, the Meta pixel starts revoked and
+  LinkedIn waits.
+- **Advanced Consent Mode.** When the Consent add-on's settings choose Google's advanced Consent Mode, the Google tag
+  and Tag Manager are left running. They see the denied defaults and send Google only cookieless pings until the
+  visitor consents. The Meta pixel and LinkedIn stay gated.
 
 The tags, the consent categories and the `contenir:consent` browser event are described in
 [contenir/tracking](https://github.com/contenir/contenir-tracking#consent).

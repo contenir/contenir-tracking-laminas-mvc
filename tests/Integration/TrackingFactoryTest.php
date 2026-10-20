@@ -18,6 +18,7 @@ use PHPUnit\Framework\TestCase;
 
 use function chdir;
 use function getcwd;
+use function preg_match;
 use function preg_match_all;
 
 /**
@@ -27,6 +28,19 @@ use function preg_match_all;
 final class TrackingFactoryTest extends TestCase
 {
     use TempDirectoryTrait;
+
+    #[Test]
+    public function gatesGooglesTagsInBasicModeOrWhenTheSettingIsMissing(): void
+    {
+        $this->enable('tracking', 'consent');
+        $basic                          = Settings::googleAndMeta();
+        $basic['extensions']['consent'] = 'advanced';
+
+        static::assertSame(
+            '<script type="text/plain" data-category="analytics" src',
+            $this->openingTags($this->helper(settings: $basic)->head())[1],
+        );
+    }
 
     #[Test]
     public function gatesScriptsWhenTheConsentAddOnIsEnabled(): void
@@ -73,6 +87,33 @@ final class TrackingFactoryTest extends TestCase
     }
 
     #[Test]
+    public function leavesGooglesTagsRunningInTheConsentAddOnsAdvancedMode(): void
+    {
+        $this->enable('tracking', 'consent');
+
+        static::assertSame(
+            [
+                '<script>',
+                '<script src',
+                '<script>',
+                '<script type="text/plain" data-category="marketing">',
+            ],
+            $this->openingTags($this->helper(settings: $this->advanced())->head()),
+        );
+    }
+
+    #[Test]
+    public function readsAdvancedModeOnlyWhenTheConsentBannerGates(): void
+    {
+        $this->enable('tracking');
+
+        static::assertSame(
+            ['<script>', '<script src', '<script>', '<script>'],
+            $this->openingTags($this->helper(settings: $this->advanced())->head()),
+        );
+    }
+
+    #[Test]
     public function readsTheDefaultDirectoryWhenTheConfiguredOneIsNotText(): void
     {
         $this->enable('tracking');
@@ -111,6 +152,23 @@ final class TrackingFactoryTest extends TestCase
         static::assertSame(
             ['<script nonce="abc">', '<script src', '<script nonce="abc">', '<script nonce="abc">'],
             $this->openingTags($this->helper([], new FixedNonce('abc'))->head()),
+        );
+    }
+
+    #[Test]
+    public function waitsForConsentBehindTheConsentBannerWhateverTheSettingsSay(): void
+    {
+        $this->enable('tracking', 'consent');
+
+        $head = $this->helper()->head();
+
+        static::assertSame(
+            [1, 0, 1],
+            [
+                preg_match('/"ad_storage":"denied"/', $head),
+                preg_match('/"ad_storage":"granted"/', $head),
+                preg_match("/state && state\\.ads \\? 'grant' : 'revoke'/", $head),
+            ],
         );
     }
 
@@ -162,14 +220,29 @@ final class TrackingFactoryTest extends TestCase
     }
 
     /**
-     * @param array<string, mixed> $options
+     * The site's settings with the Consent add-on in advanced Google Consent
+     * Mode.
      *
      * @return array<string, mixed>
      */
-    private function config(array $options): array
+    private function advanced(): array
+    {
+        $settings                                                 = Settings::googleAndMeta();
+        $settings['extensions']['consent']['google_consent_mode'] = 'advanced';
+
+        return $settings;
+    }
+
+    /**
+     * @param array<string, mixed>  $options
+     * @param ?array<string, mixed> $settings
+     *
+     * @return array<string, mixed>
+     */
+    private function config(array $options, ?array $settings = null): array
     {
         return [
-            'settings'          => Settings::googleAndMeta(),
+            'settings'          => $settings ?? Settings::googleAndMeta(),
             'contenir_tracking' => ['extensions_config' => $this->directory, ...$options],
         ];
     }
@@ -180,11 +253,15 @@ final class TrackingFactoryTest extends TestCase
     }
 
     /**
-     * @param array<string, mixed> $options
+     * @param array<string, mixed>  $options
+     * @param ?array<string, mixed> $settings
      */
-    private function helper(array $options = [], ?NonceProviderInterface $nonces = null): Tracking
-    {
-        $services = ['config' => $this->config($options)];
+    private function helper(
+        array $options = [],
+        ?NonceProviderInterface $nonces = null,
+        ?array $settings = null,
+    ): Tracking {
+        $services = ['config' => $this->config($options, $settings)];
         if (null !== $nonces) {
             $services[NonceProviderInterface::class] = $nonces;
         }
