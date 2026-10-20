@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a03e6a231b59bc918b2cfe37915e807",
+    "content-hash": "d30943bb20c932acc34854acade523fb",
     "packages": [
         {
             "name": "contenir/tracking",
-            "version": "dev-main",
+            "version": "v0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/contenir/contenir-tracking.git",
-                "reference": "e420eb2bac3095d3c3d12515687bb2708bb9f587"
+                "reference": "bc224283a40c9bfab877ededd2266ebc5c63dfba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-tracking/zipball/e420eb2bac3095d3c3d12515687bb2708bb9f587",
-                "reference": "e420eb2bac3095d3c3d12515687bb2708bb9f587",
+                "url": "https://api.github.com/repos/contenir/contenir-tracking/zipball/bc224283a40c9bfab877ededd2266ebc5c63dfba",
+                "reference": "bc224283a40c9bfab877ededd2266ebc5c63dfba",
                 "shasum": ""
             },
             "require": {
@@ -28,7 +28,6 @@
                 "infection/infection": "^0.34.1",
                 "phpunit/phpunit": "^11.5.42"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -40,43 +39,7 @@
                     "Contenir\\Tracking\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Contenir\\Tracking\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "check": [
-                    "@cs-check",
-                    "@static-analysis",
-                    "@test",
-                    "@test-integration",
-                    "@mutation-test"
-                ],
-                "cs-check": [
-                    "mago format --check",
-                    "mago lint"
-                ],
-                "cs-fix": [
-                    "mago format",
-                    "mago lint --fix"
-                ],
-                "static-analysis": [
-                    "mago analyze"
-                ],
-                "test": [
-                    "phpunit --colors=always --testsuite unit"
-                ],
-                "test-integration": [
-                    "phpunit --colors=always --testsuite integration"
-                ],
-                "test-coverage": [
-                    "phpunit --colors=always --coverage-clover clover.xml"
-                ],
-                "mutation-test": [
-                    "infection"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -94,7 +57,7 @@
                 "issues": "https://github.com/contenir/contenir-tracking/issues",
                 "source": "https://github.com/contenir/contenir-tracking"
             },
-            "time": "2026-10-20T05:14:22+00:00"
+            "time": "2026-10-20T09:20:59+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -4825,7 +4788,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "contenir/tracking": 20,
         "contenir/contenir-qa-tools": 20
     },
     "prefer-stable": true,

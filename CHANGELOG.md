@@ -4,7 +4,14 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and the project
 adheres to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased] - 2026-10-20
+## [Unreleased] - 2026-10-21
+
+### Changed
+
+- Requires contenir/tracking `^0.1` from Packagist, where it required `0.1.x-dev` through a `vcs` repository entry.
+  A project at stable stability can now install the adapter.
+
+## [0.1.0] - 2026-10-20
 
 ### Added
 
