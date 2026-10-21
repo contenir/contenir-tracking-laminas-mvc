@@ -1,6 +1,6 @@
 {
-    "name": "contenir/tracking-laminas-mvc",
-    "description": "Laminas MVC view helpers for contenir/tracking: tracking()->head() and tracking()->bodyStart() write a site's tags, Consent Mode first, with the page's CSP nonce.",
+    "name": "contenir/contenir-tracking-laminas-mvc",
+    "description": "Laminas MVC view helpers for contenir/contenir-tracking: tracking()->head() and tracking()->bodyStart() write a site's tags, Consent Mode first, with the page's CSP nonce.",
     "type": "library",
     "license": "BSD-3-Clause",
     "keywords": [
@@ -24,7 +24,7 @@
     ],
     "require": {
         "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
-        "contenir/tracking": "0.1.x-dev",
+        "contenir/contenir-tracking": "^0.2",
         "laminas/laminas-servicemanager": "^3.22 || ^4.0",
         "laminas/laminas-view": "^2.30",
         "psr/container": "^1.1 || ^2.0"
@@ -33,6 +33,9 @@
         "contenir/contenir-qa-tools": "0.1.x-dev",
         "infection/infection": "^0.34.1",
         "phpunit/phpunit": "^11.5.42"
+    },
+    "replace": {
+        "contenir/tracking-laminas-mvc": "self.version"
     },
     "autoload": {
         "psr-4": {
