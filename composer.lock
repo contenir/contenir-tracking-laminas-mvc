@@ -4,31 +4,33 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9a03e6a231b59bc918b2cfe37915e807",
+    "content-hash": "ec762a78eb3a958d41b10a9f289d5368",
     "packages": [
         {
-            "name": "contenir/tracking",
-            "version": "dev-main",
+            "name": "contenir/contenir-tracking",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:contenir/contenir-tracking.git",
-                "reference": "d124919a88eb7e939dfd203fbba89e93c49bf026"
+                "reference": "575173d4fced9b66344331fe83b2f2d05f9f69b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-tracking/zipball/d124919a88eb7e939dfd203fbba89e93c49bf026",
-                "reference": "d124919a88eb7e939dfd203fbba89e93c49bf026",
+                "url": "https://api.github.com/repos/contenir/contenir-tracking/zipball/575173d4fced9b66344331fe83b2f2d05f9f69b3",
+                "reference": "575173d4fced9b66344331fe83b2f2d05f9f69b3",
                 "shasum": ""
             },
             "require": {
                 "php": "~8.3.0 || ~8.4.0 || ~8.5.0"
+            },
+            "replace": {
+                "contenir/tracking": "self.version"
             },
             "require-dev": {
                 "contenir/contenir-qa-tools": "0.1.x-dev",
                 "infection/infection": "^0.34.1",
                 "phpunit/phpunit": "^11.5.42"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -94,7 +96,7 @@
                 "issues": "https://github.com/contenir/contenir-tracking/issues",
                 "source": "https://github.com/contenir/contenir-tracking"
             },
-            "time": "2026-10-20T23:54:29+00:00"
+            "time": "2026-10-21T01:14:56+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -4825,7 +4827,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "contenir/tracking": 20,
         "contenir/contenir-qa-tools": 20
     },
     "prefer-stable": true,
