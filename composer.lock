@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9884a8681ca488c7878d97c1c4c545da",
+    "content-hash": "9a03e6a231b59bc918b2cfe37915e807",
     "packages": [
         {
             "name": "contenir/tracking",
-            "version": "dev-feat/consent-banner",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "git@github.com:contenir/contenir-tracking.git",
-                "reference": "1f7ae0559f5871398be033e6e7ca9cdd6e30631a"
+                "reference": "d124919a88eb7e939dfd203fbba89e93c49bf026"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/contenir/contenir-tracking/zipball/1f7ae0559f5871398be033e6e7ca9cdd6e30631a",
-                "reference": "1f7ae0559f5871398be033e6e7ca9cdd6e30631a",
+                "url": "https://api.github.com/repos/contenir/contenir-tracking/zipball/d124919a88eb7e939dfd203fbba89e93c49bf026",
+                "reference": "d124919a88eb7e939dfd203fbba89e93c49bf026",
                 "shasum": ""
             },
             "require": {
@@ -28,6 +28,7 @@
                 "infection/infection": "^0.34.1",
                 "phpunit/phpunit": "^11.5.42"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -93,7 +94,7 @@
                 "issues": "https://github.com/contenir/contenir-tracking/issues",
                 "source": "https://github.com/contenir/contenir-tracking"
             },
-            "time": "2026-10-20T23:27:58+00:00"
+            "time": "2026-10-20T23:54:29+00:00"
         },
         {
             "name": "laminas/laminas-escaper",
@@ -4821,14 +4822,7 @@
             "time": "2026-10-05T23:14:19+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "contenir/tracking",
-            "version": "dev-feat/consent-banner",
-            "alias": "0.1.1",
-            "alias_normalized": "0.1.1.0"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "contenir/tracking": 20,
