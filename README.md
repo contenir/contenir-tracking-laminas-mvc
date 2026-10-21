@@ -1,11 +1,11 @@
-# contenir/tracking-laminas-mvc
+# contenir/contenir-tracking-laminas-mvc
 
 [![Continuous Integration](https://github.com/contenir/contenir-tracking-laminas-mvc/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/contenir/contenir-tracking-laminas-mvc/actions/workflows/continuous-integration.yml)
 [![codecov](https://codecov.io/gh/contenir/contenir-tracking-laminas-mvc/graph/badge.svg)](https://codecov.io/gh/contenir/contenir-tracking-laminas-mvc)
 
-The Laminas MVC view helper for [contenir/tracking](https://github.com/contenir/contenir-tracking). It writes a
-site's analytics and advertising tags into its layout: Google Consent Mode v2 first, then the Google tag, Tag Manager,
-the Meta pixel and LinkedIn Insight, each with the page's CSP nonce.
+The Laminas MVC view helper for [contenir/contenir-tracking](https://github.com/contenir/contenir-tracking). It
+writes a site's analytics and advertising tags into its layout: Google Consent Mode v2 first, then the Google tag, Tag
+Manager, the Meta pixel and LinkedIn Insight, each with the page's CSP nonce.
 
 The tags are set in the CMS, by the [Tracking add-on](https://github.com/contenir-extension/tracking). Settings are
 read from the site's `config['settings']`, as the CMS writes them, so there is nothing to configure on the site.
@@ -18,7 +18,7 @@ read from the site's `config['settings']`, as the CMS writes them, so there is n
 ## Install
 
 ```bash
-composer require contenir/tracking-laminas-mvc
+composer require contenir/contenir-tracking-laminas-mvc
 ```
 
 Add `Contenir\Tracking\Laminas\Mvc` to the application's modules (laminas-component-installer offers to).
@@ -63,7 +63,7 @@ nonce, and only when the tags don't wait for consent.
   visitor consents. The Meta pixel and LinkedIn stay gated.
 
 The tags, the consent categories and the `contenir:consent` browser event are described in
-[contenir/tracking](https://github.com/contenir/contenir-tracking#consent).
+[contenir/contenir-tracking](https://github.com/contenir/contenir-tracking#consent).
 
 ## Configuration
 
